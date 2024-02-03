@@ -2,7 +2,7 @@
 
 > 一个调查问卷投放与互助填写平台
 
-|[English](https://QueLaunch.github.io)|[简体中文](https://QueLaunch.github.io/zh-cn.md)|
+|[English](https://QueLaunch.github.io)|[简体中文](https://QueLaunch.github.io/zh-cn)|
 
 <details>
     <summary>人工智能</summary>
