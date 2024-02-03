@@ -2,7 +2,7 @@
 
 > A questionnaire launch and mutual aid filling platform.
 
-|[English](https://QueLaunch.github.io)|[简体中文](https://QueLaunch.github.io/zh-cn.md)|
+|[English](https://QueLaunch.github.io)|[简体中文](https://QueLaunch.github.io/zh-cn)|
 
 <details>
     <summary>Artificial Intelligence</summary>
