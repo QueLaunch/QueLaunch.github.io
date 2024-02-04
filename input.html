@@ -25,18 +25,31 @@
 
 <h1>File Information Display</h1>
 
+<input type="file" id="fileInput" accept=".json">
 <ul id="fileList"></ul>
 
 <script>
-  // Function to load local JSON file
-  async function loadLocalJsonFile() {
-    try {
-      // Adjust the file path as needed
-      const response = await fetch('path/to/your/file.json');
-      const jsonData = await response.json();
-      displayFileInformation(jsonData);
-    } catch (error) {
-      console.error('Error loading local JSON file:', error);
+  document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+  function handleFileSelect(event) {
+    var fileList = event.target.files;
+
+    // Ensure a file was selected
+    if (fileList.length > 0) {
+      var file = fileList[0];
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        try {
+          var jsonData = JSON.parse(e.target.result);
+          displayFileInformation(jsonData);
+        } catch (error) {
+          console.error('Error parsing JSON file:', error);
+        }
+      };
+
+      // Read the file as text
+      reader.readAsText(file);
     }
   }
 
@@ -56,9 +69,6 @@
     // Append the list item to the file list
     fileListElement.appendChild(listItem);
   }
-
-  // Load local JSON file when the page loads
-  document.addEventListener('DOMContentLoaded', loadLocalJsonFile);
 </script>
 
 </body>
