@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <title>读取本地yml文件</title>
+</head>
+<body>
+  <ul id="info-list"></ul>
+
+  <script>
+    const filePaths = [
+      'AI/user.yml'
+    ];
+
+    Promise.all(
+      filePaths.map(path => fetch(path).then(res => res.json()))
+    ).then(dataList => {
+      
+      // 获取渲染容器
+      const infoList = document.getElementById('info-list');
+      
+      // 遍历数据渲染
+      dataList.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <b>${item.title}</b>
+          Type: ${item.type}  
+          <a href="${item.link}">Link</a>
+          <div>${item.time}</div>
+        `;
+
+        infoList.appendChild(li);
+      });
+
+    });
+  </script>
+
+</body>
+</html>
